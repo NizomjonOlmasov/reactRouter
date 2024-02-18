@@ -12,7 +12,7 @@ function Navbar() {
         <Link to={'/login'} className='me-3 py-2 text-dark text-decoration-none'>
        Login
         </Link>
-    <Link className='me-3 py-2 text-dark text-decoration-none'>
+    <Link to={'/registr'} className='me-3 py-2 text-dark text-decoration-none'>
    Registr
     </Link>
 
