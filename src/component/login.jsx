@@ -2,9 +2,19 @@ import React from "react";
 import { icon } from "./constants";
 import { useState } from "react";
 import Input from "../ui/input";
+import {useDispatch,useSelector } from "react-redux";
+import { loginUserStart } from "../slice/auth";
+
 function Login() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch=useDispatch()
+  const {isLoading}=useSelector(state=>state.auth)
+  const loginHandler=e=>{
+    e.preventDefault();
+    dispatch(loginUserStart())
+  }
+  console.log(isLoading);
   return (
     <div className="text-center">
       <main className="form-signin w-25 m-auto">
@@ -21,8 +31,9 @@ function Login() {
             setState={setPassword}
           />
 
-          <button className="btn btn-primary w-100 py-2 mt-4" type="submit">
-            Registr
+          <button className="btn btn-primary w-100 py-2 mt-4" type="submit" onClick={loginHandler} disabled={isLoading} >
+          {isLoading ? "Loading ..." : "Login"}
+          
           </button>
           <p className="mt-5 mb-3 text-body-secondary">
             © cadet by O'lmasov Nizomjon
