@@ -11,7 +11,7 @@ function Input({ label, state, setState, type = "text" }) {
         id="floatingInput"
         placeholder="name@example.com"
       />
-      <label for="floatingInput">{label}</label>
+      <label htmlFor="floatingInput">{label}</label>
     </div>
   );
 }
